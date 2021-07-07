@@ -10,7 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Message from "./Message";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import MicIcon from "@material-ui/icons/Mic";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import firebase from "firebase";
 import getRecipientEmail from "../utils/getRecipientEmail";
 import TimeAgo from "timeago-react";
@@ -31,6 +31,10 @@ function ChatScreen({ chat, messages }) {
   const [recipientSnapshot] = useCollection(
     db.collection("users").where("email", "==", recipientEmail)
   );
+
+  useEffect(() => {
+    scrollToBottom();
+  }, []);
 
   const scrollToBottom = () => {
     endOfMessageRef.current.scrollIntoView({
