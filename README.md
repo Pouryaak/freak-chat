@@ -1,1 +1,1 @@
-## Freak Chat is an AWESOME Open Source chat app
+## Freak Chat is an AWESOME 🚀 Open Source chat app
